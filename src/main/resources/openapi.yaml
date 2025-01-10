@@ -1,0 +1,66 @@
+openapi: 3.0.0
+info:
+  title: Inditex - Price API
+  description: API for retrieving product prices by brand and date
+  version: 1.0.0
+
+paths:
+  /prices:
+    get:
+      summary: Get price details for a product by brand and date
+      parameters:
+        - name: brandId
+          in: query
+          description: ID of the brand
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1
+        - name: productId
+          in: query
+          description: ID of the product
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 35455
+        - name: date
+          in: query
+          description: Date for price application
+          required: true
+          schema:
+            type: string
+            format: date-time
+            example: "2020-06-14T00:00:00Z"
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PriceDetails'
+        '400':
+          description: Invalid request
+        '404':
+          description: Price not found
+
+components:
+  schemas:
+    PriceDetails:
+      type: object
+      properties:
+        productId:
+          type: integer
+          format: int64
+        brandId:
+          type: integer
+          format: int64
+        priceList:
+          type: integer
+        startDate:
+          type: string
+          format: date-time
+        price:
+          type: number
+          format: double

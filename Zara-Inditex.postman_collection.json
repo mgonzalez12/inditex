@@ -1,0 +1,146 @@
+{
+	"info": {
+		"_postman_id": "9d775868-d2d9-4307-8816-dfddb2811a2a",
+		"name": "Zara-Inditex",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3907182"
+	},
+	"item": [
+		{
+			"name": "status 200 -  Ok (success)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/prices?brandId=1&productId=35455&date=2020-06-14T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "brandId",
+							"value": "1"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "date",
+							"value": "2020-06-14T00:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status 400 - bad request (invalido tipo)",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/prices?brandId=2&productId=35455&date=2020-06-14 00:00:00",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "brandId",
+							"value": "2"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "date",
+							"value": "2020-06-14 00:00:00"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status 404 - not found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/prices?brandId=12323&productId=35455&date=2020-06-14T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "brandId",
+							"value": "12323"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "date",
+							"value": "2020-06-14T00:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "status 400  - consulta  campos null",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api/prices?brandId=12323&productId=35455&date=2020-06-14T00:00:00Z",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api",
+						"prices"
+					],
+					"query": [
+						{
+							"key": "brandId",
+							"value": "12323"
+						},
+						{
+							"key": "productId",
+							"value": "35455"
+						},
+						{
+							"key": "date",
+							"value": "2020-06-14T00:00:00Z"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
